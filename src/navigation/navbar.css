@@ -1,46 +1,99 @@
-nav {
-  display: flex;
-  background-color: #ebe4e4;
-  /* padding: 20px; */
+*{
+  margin:0;
+  padding:0;
 }
+.main-header{
+  background-color: #e6e7e7;
+  box-shadow: 1px 10px 5px 0px rgba(0,0,0,0.21);
+-webkit-box-shadow: 1px 10px 5px 0px rgba(0,0,0,0.21);
+-moz-box-shadow: 1px 10px 5px 0px rgba(0,0,0,0.21);
+}
+.row{
+  display: flex;
+  align-items: center;
+}
+
+
 
 .logo {
-  width: 50%;
+  width: 61%;
+  display: flex;
+  justify-content: end;
+  padding: 16px;
+  overflow: hidden;
+
 }
-.logo image {
+.logo:hover img{
+  transform: scale(1.2);
+}
+.logo img {
   width: 100%;
+  transition:all linear 0.3s;
 }
 
-ul {
+ ul {
   display: flex;
   list-style: none;
   justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0 !important;
+  padding: 18px 0;
 }
-li {
-  margin: 17px;
+ ul li{
+  margin-left:20px;
 }
-
-a {
-  color: #090707;
-  font-weight: bold;
+ ul li a {
+  color: #403f3f;
   text-decoration: none;
+  font-family: "Roboto",sans-serif;
+  font-weight: 400;
   transition: all linear 0.3s;
 }
-a:hover {
+ul li:nth-child(5) a{
+  display: inline-block;
+  background-color: #0077cc;
+  padding: 5px 16px;
+  color: #fff;
+  border: 1px solid #0077cc;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all linear 0.3s;
+
+}
+ul li:nth-child(5) a:hover{
+  color: #0077cc;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+ul li:last-child a{
+  display: inline-block;
+  background-color: #198754;
+  padding: 5px 16px;
+  color: #fff;
+  border: 1px solid #198754;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all linear 0.3s;
+}
+ul li:last-child a:hover{
+  background-color: #fff;
+  color:#198754;
+  border-color:#fff;
+  box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.62);
+-webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.62);
+-moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.62);
+
+  
+}
+ul li a i{
+  margin-right:2px;
+}
+ ul li a:hover {
   color: #b62121;
 }
 
-nav ul li:nth-child(5) a,
-nav ul li:nth-child(6) a {
-  background-color: #49b53f;
-  color: #fff;
-  border-radius: 10px;
-  padding: 13px 13px;
-  font-weight: bold;
-}
 
-nav ul li:nth-child(5) a:hover,
-nav ul li:nth-child(6) a:hover {
-  background-color: #ffffff;
-  color: #3f51b5;
-}

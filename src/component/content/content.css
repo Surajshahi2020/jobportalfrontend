@@ -41,7 +41,7 @@ form {
 .job-list {
   height: 100%;
   overflow-y: hidden;
-  height: 207px;
+  height: 370px;
 }
 
 .job-list:hover {

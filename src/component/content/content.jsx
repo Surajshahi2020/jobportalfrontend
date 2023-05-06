@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./content.css";
-import image from "../images/image.jpg";
+import image from "../../images/image.jpg";
 
 function Content() {
   const [jobList, setJobList] = useState([]);
@@ -10,6 +10,7 @@ function Content() {
       .then((response) => response.json())
       .then((data) => {
         setJobList(data.data.docs);
+        console.log(data.data.docs)
       })
       .catch((error) => console.log(error));
   }, []);

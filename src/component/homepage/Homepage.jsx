@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../navigation/Navbar";
+
 import Content from "../content/content";
 import Login  from "../login/login";
 
@@ -8,7 +9,6 @@ function App() {
     <div>
       <Navbar />
       <Content />
-      <Login />
     </div>
   );
 }

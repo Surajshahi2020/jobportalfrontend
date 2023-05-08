@@ -13,6 +13,8 @@ function Register() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [timeoutId, setTimeoutId] = useState(null);
+  const [company, setCompany] = useState("");
+
 
   useEffect(() => {
     return () => {
@@ -31,6 +33,8 @@ function Register() {
     formData.append("image", image);
     formData.append("mobile", mobile);
     formData.append("gender", gender);
+    formData.append("company", company)
+
 
     let url = "http://localhost:8000/api/v1/accounts/student-create/"
     if (mode === "r") {
@@ -52,6 +56,7 @@ function Register() {
       document.getElementById("image").value = "";
       setMobile("");
       setGender("");
+      setCompany("");
       setTimeoutId(setTimeout(() => {
         setSuccess(false);
       }, 4000));
@@ -121,6 +126,23 @@ function Register() {
           required
         />
       </div>
+
+      <div>
+        {mode !== "s" && <label htmlFor="company">Company</label>}
+        {mode !== "s" && (
+          <input
+            type="company"
+            id="company"
+            name="company"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            required
+          />
+        )}
+      </div>
+
+
+
       <div>
         <label htmlFor="gender">Gender</label>
         <select
@@ -139,7 +161,7 @@ function Register() {
       <div className="flex">
         <label className="flex">
           <span className="checkmark mr-2">Student</span>
-          <input type="radio" checked="checked" name="mode" value={mode} onChange={(e) => setMode("s")} />
+          <input type="radio" name="mode" value={mode} onChange={(e) => setMode("s")} />
         </label>
         <label className="flex">
           <span className="checkmark mr-2">Recruiter</span>

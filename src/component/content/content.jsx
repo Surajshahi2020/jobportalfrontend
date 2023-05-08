@@ -4,16 +4,34 @@ import image from "../../images/image.jpg";
 
 function Content() {
   const [jobList, setJobList] = useState([]);
+  const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/recruiter/job-list/")
-      .then((response) => response.json())
-      .then((data) => {
-        setJobList(data.data.docs);
-        console.log(data.data.docs)
-      })
-      .catch((error) => console.log(error));
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setAccessToken(token);
+    }
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/v1/recruiter/job-list/", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        const data = await response.json();
+        setJobList(data.data.docs);
+        console.log(data.data.docs);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (accessToken) {
+      fetchData();
+    }
+  }, [accessToken]);
 
   return (
     <div className="content">
@@ -32,7 +50,11 @@ function Content() {
         <div className="row">
           <div className="col-md-4">
             <div className="job-list">
-              <h2>Lastest Jobs</h2>
+
+
+            { localStorage.getItem("accessToken") && (<>
+            <h2>Lastest Jobs</h2>
+              </>)}
               {jobList.map((job) => (
                 <div className="job" key={job.id}>
                   <div className="job-list-content">

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Register.css";
+
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -8,8 +9,18 @@ function Register() {
   const [image, setImage] = useState(null);
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
+  const [mode, setMode] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [timeoutId, setTimeoutId] = useState(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [timeoutId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,25 +31,33 @@ function Register() {
     formData.append("image", image);
     formData.append("mobile", mobile);
     formData.append("gender", gender);
-  
-    try {
-      const response = await fetch("http://localhost:8000/api/v1/accounts/student-create/", {
-        method: "POST",
-        body: formData
-      });
-      const data = await response.json();
-      console.log(data);
-      if (response.ok) {
-        setSuccess(data.message);
-        setError("");
-      } else {
+
+    let url = "http://localhost:8000/api/v1/accounts/student-create/"
+    if (mode === "r") {
+      url = "http://localhost:8000/api/v1/accounts/recruiter-create/"
+    }
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData
+    });
+    const data = await response.json();
+    console.log(data);
+    if (response.ok) {
+      setSuccess(data.message);
+      setError("");
+      setEmail("");
+      setPassword("");
+      setImage("null");
+      setSlug("");
+      document.getElementById("image").value = "";
+      setMobile("");
+      setGender("");
+      setTimeoutId(setTimeout(() => {
         setSuccess(false);
-        setError(data.message);
-      }
-    } catch (error) {
-      console.error(error);
+      }, 4000));
+    } else {
       setSuccess(false);
-      setError("Registration failed. Please try again later.");
+      setError(data.message);
     }
   };
 
@@ -56,6 +75,7 @@ function Register() {
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -66,6 +86,7 @@ function Register() {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -76,11 +97,18 @@ function Register() {
           name="slug"
           value={slug}
           onChange={(e) => setSlug(e.target.value)}
+          required
         />
       </div>
       <div>
         <label htmlFor="image">Image</label>
-        <input type="file" id="image" name="image" onChange={handleImageChange} />
+        <input
+          type="file"
+          id="image"
+          name="image"
+          onChange={handleImageChange}
+          required
+        />
       </div>
       <div>
         <label htmlFor="mobile">Mobile</label>
@@ -90,6 +118,7 @@ function Register() {
           name="mobile"
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -99,6 +128,7 @@ function Register() {
           name="gender"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
+          required
         >
           <option value="">Select Gender</option>
           <option value="male">Male</option>
@@ -106,7 +136,17 @@ function Register() {
           <option value="other">Other</option>
         </select>
       </div>
-      <button type="submit">Register</button>
+      <div className="flex">
+        <label className="flex">
+          <span className="checkmark mr-2">Student</span>
+          <input type="radio" checked="checked" name="mode" value={mode} onChange={(e) => setMode("s")} />
+        </label>
+        <label className="flex">
+          <span className="checkmark mr-2">Recruiter</span>
+          <input type="radio" name="mode" value={mode} onChange={(e) => setMode("r")} />
+        </label>
+      </div>
+      <button type="submit">Submit</button>
       {success && (
         <p className="success-message">{success}</p>
       )}

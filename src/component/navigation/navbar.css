@@ -28,7 +28,7 @@
   transition: all linear 0.3s;
 }
 
-ul {
+.main-header ul {
   display: flex;
   list-style: none;
   justify-content: flex-end;

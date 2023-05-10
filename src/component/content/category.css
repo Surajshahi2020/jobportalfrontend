@@ -1,10 +1,10 @@
-.category-name h3 {
-  color: #51c5c5;
-  font-family: "Roboto", sans-serif;
+.category-name h1 {
+  font-weight: 200px;
   font-size: 30px;
-  margin-bottom: -46px;
-  margin: auto;
-  font-display: 400px;
+  color: #00a7ac;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: -42px;
 }
 
 span.open-post {
@@ -32,7 +32,7 @@ h5.card-title {
 
 .category-container {
   margin: 64px auto;
-  width: 68%;
+  max-width: 68%;
 }
 
 .card-img-overlay {
@@ -68,4 +68,25 @@ span.open-post {
 }
 .react-multi-carousel-track {
   padding: 5rem 0;
+}
+
+@media (max-width: 1400px) {
+  .category-container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1200px) {
+  .category-container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 992px) {
+  .category-container {
+    max-width: 940px;
+  }
+}
+@media (max-width: 760px) {
+  .category-container {
+    max-width: 90vw;
+  }
 }

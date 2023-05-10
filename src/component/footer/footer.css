@@ -1,0 +1,33 @@
+.footer-container {
+  background-color: rgb(233, 233, 253);
+  box-shadow: 1px 10px 5px 0px rgba(0, 0, 0, 0.21);
+  -webkit-box-shadow: 1px 10px 5px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 1px 10px 5px 0px rgba(0, 0, 0, 0.21);
+}
+
+.footer-title h5 {
+  padding: 11px;
+  margin-left: 45px;
+  color: rgb(19, 12, 12);
+  font-weight: 400px;
+  margin: 11px;
+}
+
+.footer-row {
+  display: flex;
+  margin: -114px 15%;
+}
+.social {
+  display: flex;
+  margin-left: -28px;
+}
+
+.col-md-3 {
+  color: whitesmoke;
+}
+.footer-ul {
+  margin-left: -28px;
+}
+.developer-name {
+  margin-left: 19px;
+}

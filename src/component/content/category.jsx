@@ -49,7 +49,7 @@ function Category() {
     return (
         <div className="category-container">
             <div className="category-name">
-                <h3>Popular Category List</h3>
+                <h1>Popular Category List</h1>
             </div>
             <Carousel responsive={responsive}>
                 {jobList.map((job) => (

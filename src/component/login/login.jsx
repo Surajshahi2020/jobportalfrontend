@@ -14,7 +14,7 @@ function Login() {
     formData.append("password", password);
     try {
       let url="http://localhost:8000/api/v1/accounts/student-login/"
-      if (mode == "r") {
+      if (mode === "r") {
         url = "http://localhost:8000/api/v1/accounts/recruiter-login/"
       }
       const response = await fetch(url, {

@@ -1,0 +1,71 @@
+.category-name h3 {
+  color: #51c5c5;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  margin-bottom: -46px;
+  margin: auto;
+  font-display: 400px;
+}
+
+span.open-post {
+  color: blanchedalmond;
+  font-style: bold;
+}
+
+.card-img {
+  height: 199px;
+  margin-bottom: 60px;
+  opacity: 1.4;
+}
+
+.card.text-bg-white {
+  height: 200px;
+  gap: 10px;
+}
+
+p.card-text {
+  color: aliceblue;
+}
+h5.card-title {
+  color: aliceblue;
+}
+
+.category-container {
+  margin: 64px auto;
+  width: 68%;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 70px;
+  right: -29px;
+  bottom: 0;
+  left: 45px;
+  padding: var(--bs-card-img-overlay-padding);
+  border-radius: var(--bs-card-inner-border-radius);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+span.open-post {
+  color: blanchedalmond;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(4% + 1px);
+  top: 0rem;
+  right: 0;
+}
+
+.react-multiple-carousel__arrow--left {
+  right: calc(5% + 8px);
+  top: 0rem;
+  left: unset;
+}
+.react-multi-carousel-track {
+  padding: 5rem 0;
+}

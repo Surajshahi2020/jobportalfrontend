@@ -1,0 +1,56 @@
+.student-footer {
+  margin-top: 0px;
+}
+.student-profile img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 0;
+}
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 !important;
+  margin: 0;
+}
+.dropdown-menu-item {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin: 0 !important;
+  padding: 0.5rem;
+}
+.student-profile {
+  border-radius: 5px;
+}
+
+.student-profile h5 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+.student-profile-form {
+  margin-top: 0px;
+  background-color: white;
+  height: 860px;
+}
+
+.student-profile-form .container {
+  display: block;
+  margin-top: 80px;
+  border: rgb(195, 203, 203);
+  width: 39%;
+  height: 444px;
+  background-color: rgb(242, 246, 242);
+  border-radius: 1%;
+}
+
+img.img-fluid {
+  width: 100px;
+  margin-left: 392px;
+  margin-top: -89px;
+}

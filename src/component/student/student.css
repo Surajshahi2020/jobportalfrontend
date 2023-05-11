@@ -32,25 +32,37 @@
 
 .form-group {
   margin-bottom: 18px;
+  color: #5c5555;
 }
 .student-profile-form {
   margin-top: 0px;
-  background-color: white;
+  background-color: #d9bccc;
   height: 860px;
+  font-weight: 600;
 }
 
 .student-profile-form .container {
   display: block;
   margin-top: 80px;
-  border: rgb(195, 203, 203);
+  order: 1px solid rgba(0, 0, 0, 0.075);
   width: 39%;
-  height: 444px;
+  height: 583px;
   background-color: rgb(242, 246, 242);
   border-radius: 1%;
+  padding: 56px;
 }
 
 img.img-fluid {
-  width: 100px;
-  margin-left: 392px;
-  margin-top: -89px;
+  width: 248px;
+  height: 260px;
+  margin-left: -459px;
+  margin-top: -232px;
+  border-radius: 15px;
+}
+
+.success-message,
+.error-message {
+  background-color: palegreen;
+  margin-top: 32px;
+  padding: 12px;
 }

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 function SProfile() {
   const [studentData, setStudentData] = useState({});
   const [image, setImage] = useState({});
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
 
   useEffect(() => {
@@ -56,6 +58,13 @@ function SProfile() {
       );
       const data = await response.json();
       console.log(data);
+      if (data.ok) {
+        setSuccess(data.message);
+        setError("");
+      } else {
+        setSuccess(false);
+        setError(data.message);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -167,6 +176,10 @@ function SProfile() {
           <button type="submit" className="btn btn-primary">
             Save
           </button>
+          {success && (
+        <p className="success-message">{success}</p>
+      )}
+      {error && <p className="error-message">{error}</p>}
         </div>
       </div>
     </form>

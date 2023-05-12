@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import "./navbar.css";
 import logo from "../../images/logo.jpg";
 import image from "../../images/image.jpg"
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Register from "../Register/Register";
 import Login from "../login/login";
+import ChangePassword from "../student/change_password";
 function Navbar() {
   const [loginVisible, setLoginVisible] = useState(false);
   const [signupVisible, setSignupVisible] = useState(false);
@@ -88,9 +90,9 @@ function Navbar() {
                     <img src={image} alt="student-logo" />
                     {showDropdown && (
                         <ul className="dropdown-menu">
-                        <li className="dropdown-menu-item"><a href="https://preview.themeforest.net/item/jobes-job-portal-html-template/full_screen_preview/43974301?_ga=2.78735261.860034729.1683561914-196358546.1674547707">Profile</a></li>
-                        <li className="dropdown-menu-item"><a href="https://preview.themeforest.net/item/jobes-job-portal-html-template/full_screen_preview/43974301?_ga=2.78735261.860034729.1683561914-196358546.1674547707">Resume</a></li>
-                        <li className="dropdown-menu-item"><a href="https://preview.themeforest.net/item/jobes-job-portal-html-template/full_screen_preview/43974301?_ga=2.78735261.860034729.1683561914-196358546.1674547707">Bookmark Job</a></li>
+                        <li className="dropdown-menu-item"> <Link to="/Student">Profile</Link></li>
+                        <li className="dropdown-menu-item"><Link to="/change_password">Change Password</Link></li>
+                        <li className="dropdown-menu-item"><a href="/">Bookmark Job</a></li>
                         <li className="dropdown-menu-item" onClick={handleLogout}><button className="logout" onClick={handleLogout}>Logout</button>
                         </li> 
                     </ul>

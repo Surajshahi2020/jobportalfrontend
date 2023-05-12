@@ -72,7 +72,9 @@ function SProfile() {
   
   return (
     
-    <form className="student-profile-form" onSubmit={handleSubmit}>
+    <div className="row student-profile-form">
+      <div className="col-md-6 offset-md-3">
+      <form className="" onSubmit={handleSubmit}>
       <div className="container">
         <div className="name">
       <h1>Profile</h1>
@@ -161,7 +163,7 @@ function SProfile() {
 
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 my-5">
           {previous ? (
                 <img src={previous} alt="previous" className="img-thumbnail" />
               ) : (
@@ -181,6 +183,8 @@ function SProfile() {
         </div>
       </div>
     </form>
+      </div>
+    </div>
   );
 }
 export default SProfile;

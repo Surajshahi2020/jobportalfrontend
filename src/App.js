@@ -1,27 +1,41 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
 import Navbar from "./component/navigation/Navbar";
-import Content from "./component/content/content";
-import Homepage from "./component/homepage/Homepage";
-import Login from "./component/login/login";
-import Category from "./component/content/category";
-import Student from "./component/student/Student";
+import Footer from "./component/footer/footer";
+import IndexPage from "./pages/index";
+import StudentPage from "./pages/student";
+import StudentChangePasswordPage from "./pages/change_password";
+import {Link} from "react-router-dom"
 
+function NotFound() {
+  return (
+    <div style={{minHeight:'85vh', padding: '5rem', display:"flex", alignItems:"center" , justifyContent:"center"}}>
+      <div>
+      <h1>404 - Not Found</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <Link to="/">Go back to the homepage</Link>
+      </div>
+    </div>
+  );
+}
+function Dummy(){
+  return (<div className="dummy"></div>)
+}
 function App() {
   return (
-    <Router>
-      <div>
+    <div>
+       <Router>
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/student" element={<Student />} />
-          <Route path="/navbar" element={<Navbar />} />
-          <Route path="/content" element={<Content />} />
-          <Route path="/category" element={<Category /> }/>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </Router>
+          <>
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/student" element={<StudentPage />} />
+          <Route path="/change_password" element={<StudentChangePasswordPage />} />
+          <Route path="*" element={<NotFound />} />
+          </></Routes>
+      <Footer />
+      </Router>
+    </div>
   );
 }
 

@@ -23,7 +23,7 @@ function Login() {
       });
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem("accessToken", data.data.access);
+        localStorage.setItem("accessToken", JSON.stringify(data.data));
         window.location.reload();
         setSuccess(data.message);
         setError("");
@@ -32,6 +32,7 @@ function Login() {
         setTimeout(() => {
           setSuccess(false);
         }, 4000);
+        window.location.href = "/student";
       } else {
         setSuccess(false);
         setError(data.message);

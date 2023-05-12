@@ -36,33 +36,37 @@
 }
 .student-profile-form {
   margin-top: 0px;
-  background-color: #d9bccc;
+  background-color: #fbf8fa;
   height: 860px;
   font-weight: 600;
+}
+
+.container h1 {
+  font-size: 22px;
+  margin-top: -43px;
+  margin-bottom: 26px;
+  color: mediumblue;
 }
 
 .student-profile-form .container {
   display: block;
   margin-top: 80px;
-  order: 1px solid rgba(0, 0, 0, 0.075);
-  width: 39%;
-  height: 583px;
-  background-color: rgb(242, 246, 242);
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  width: 42%;
+  height: 435px;
+  background-color: rgb(248 253 248);
   border-radius: 1%;
   padding: 56px;
-}
-
-img.img-fluid {
-  width: 248px;
-  height: 260px;
-  margin-left: -459px;
-  margin-top: -232px;
-  border-radius: 15px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .success-message,
 .error-message {
   background-color: palegreen;
-  margin-top: 32px;
+  margin-top: 16px;
   padding: 12px;
+}
+
+img.img-thumbnail {
+  height: 6rem;
 }

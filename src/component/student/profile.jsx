@@ -1,30 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function SProfile() {
-  const [studentData, setStudentData] = useState({});
-  const [image, setImage] = useState({});
-  const [previous, setPrevious] = useState();
+  let authData = JSON.parse(localStorage.getItem("accessToken"))
+
+  const [studentData, setStudentData] = useState(authData);
+  const [image, setImage] = useState(null);
+
+  const [previous, setPrevious] = useState( authData?.image?.includes('http') ? authData.image: "http://localhost:8000"+authData.image );
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-
-
-  useEffect(() => {
-    async function fetchStudentData() {
-      try {
-        const response = await fetch(
-          "http://localhost:8000/api/v1/cadmin/student-list/"
-        );
-        const data = await response.json();
-        if (data) {
-          setStudentData(data.data.docs[0]);
-          setImage(data.data.docs[0].image);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchStudentData();
-  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,44 +23,61 @@ function SProfile() {
     setPrevious(URL.createObjectURL(e.target.files[0]));
   };
 
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("first_name", studentData.first_name);
     formData.append("last_name", studentData.last_name);
     formData.append("mobile", studentData.mobile);
     formData.append("gender", studentData.gender);
     formData.append("type", studentData.type);
-    formData.append("image", image);
+    if (image != null) {
+      formData.append("image", image);
+    }
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/student/change-profile/35/",
+        `http://localhost:8000/api/v1/student/change-profile/${authData?.own_id}/`,
         {
           method: "PATCH",
           body: formData,
+          headers: { "Authorization": `Bearer ${authData?.access}` }
         }
       );
       const data = await response.json();
-      console.log(data);
-      if (data.ok) {
+      
+      if(response.ok){
         setSuccess(data.message);
         setError("");
-      } else {
+        authData["first_name"] = data?.data?.first_name
+        authData["last_name"] = data?.data?.last_name
+        authData["image"] = data?.data?.image
+        authData["gender"] = data?.data?.gender
+        authData["type"] = data?.data?.type
+        authData["mobile"] = data?.data?.mobile
+
+        localStorage.setItem("accessToken", JSON.stringify(authData))
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000);
+      
+      }else{
         setSuccess(false);
         setError(data.message);
-      }
+      }        
     } catch (error) {
       console.error(error);
     }
   };
-
+  
   return (
+    
     <form className="student-profile-form" onSubmit={handleSubmit}>
       <div className="container">
+        <div className="name">
+      <h1>Profile</h1>
+      </div>
+
         <div className="row">
           <div className="col-md-6">
             <div className="form-group">
@@ -131,32 +132,17 @@ function SProfile() {
               <label htmlFor="gender" className="form-label">
                 Gender
               </label>
-              <input
-                type="text"
+              <select
                 id="gender"
                 name="gender"
                 className="form-control"
                 onChange={handleInputChange}
                 value={studentData.gender}
-              />
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6">
-              <div className="form-group">
-                <label htmlFor="type" className="form-label">
-                  Category
-                </label>
-                <input
-                  type="text"
-                  id="type"
-                  name="type"
-                  className="form-control"
-                  onChange={handleInputChange}
-                  value={studentData.type}
-                />
-              </div>
+              >
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
             </div>
           </div>
           <div className="col-md-6">
@@ -165,15 +151,6 @@ function SProfile() {
                 Image
               </label>
 
-              {previous ? (
-                <img src={previous} alt="Student" className="img-fluid" />
-              ) : (
-                <img src={image} alt="Student" className="img-fluid" />
-              )}
-
-
-
-
               <input
                 type="file"
                 id="image"
@@ -181,9 +158,17 @@ function SProfile() {
                 className="form-control"
                 onChange={handleImageChange}
               />
+
             </div>
           </div>
+          <div className="col-md-6">
+          {previous ? (
+                <img src={previous} alt="previous" className="img-thumbnail" />
+              ) : (
+                <img src={image} alt="Student" className="img-thumbnail" />
+              )}
 
+          </div>
         </div>
         <div className="text-left">
           <button type="submit" className="btn btn-primary">

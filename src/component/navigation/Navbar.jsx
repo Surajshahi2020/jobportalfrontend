@@ -26,7 +26,8 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
-    window.location.reload();
+    window.location.href = "/";
+
   };
 
   return (

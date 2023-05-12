@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 function SProfile() {
   const [studentData, setStudentData] = useState({});
   const [image, setImage] = useState({});
+  const [previous, setPrevious] = useState();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
@@ -35,8 +36,11 @@ function SProfile() {
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
+    setPrevious(URL.createObjectURL(e.target.files[0]));
   };
-  
+
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -160,7 +164,16 @@ function SProfile() {
               <label htmlFor="image" className="form-label">
                 Image
               </label>
-              <img src={image} alt="Student" className="img-fluid" />
+
+              {previous ? (
+                <img src={previous} alt="Student" className="img-fluid" />
+              ) : (
+                <img src={image} alt="Student" className="img-fluid" />
+              )}
+
+
+
+
               <input
                 type="file"
                 id="image"
@@ -177,9 +190,9 @@ function SProfile() {
             Save
           </button>
           {success && (
-        <p className="success-message">{success}</p>
-      )}
-      {error && <p className="error-message">{error}</p>}
+            <p className="success-message">{success}</p>
+          )}
+          {error && <p className="error-message">{error}</p>}
         </div>
       </div>
     </form>

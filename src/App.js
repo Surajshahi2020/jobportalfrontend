@@ -5,8 +5,8 @@ import Footer from "./component/footer/footer";
 import IndexPage from "./pages/index";
 import StudentPage from "./pages/student";
 import StudentChangePasswordPage from "./pages/change_password";
-import {Link} from "react-router-dom"
-
+import {Link} from "react-router-dom";
+import StudentJobApplyPage from "./pages/student_job_apply";
 function NotFound() {
   return (
     <div style={{minHeight:'85vh', padding: '5rem', display:"flex", alignItems:"center" , justifyContent:"center"}}>
@@ -24,13 +24,14 @@ function Dummy(){
 function App() {
   return (
     <div>
-       <Router>
+      <Router>
         <Navbar />
         <Routes>
           <>
           <Route path="/" element={<IndexPage />} />
           <Route path="/student" element={<StudentPage />} />
           <Route path="/change_password" element={<StudentChangePasswordPage />} />
+          <Route path="/student_job_apply" element={<StudentJobApplyPage />}></Route>
           <Route path="*" element={<NotFound />} />
           </></Routes>
       <Footer />

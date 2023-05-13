@@ -6,7 +6,6 @@ import image from "../../images/image.jpg"
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Register from "../Register/Register";
 import Login from "../login/login";
-import ChangePassword from "../student/change_password";
 function Navbar() {
   const [loginVisible, setLoginVisible] = useState(false);
   const [signupVisible, setSignupVisible] = useState(false);
@@ -92,7 +91,7 @@ function Navbar() {
                         <ul className="dropdown-menu">
                         <li className="dropdown-menu-item"> <Link to="/Student">Profile</Link></li>
                         <li className="dropdown-menu-item"><Link to="/change_password">Change Password</Link></li>
-                        <li className="dropdown-menu-item"><a href="/">Bookmark Job</a></li>
+                        <li className="dropdown-menu-item"><Link to="/student_job_apply">Applied Job</Link></li>
                         <li className="dropdown-menu-item" onClick={handleLogout}><button className="logout" onClick={handleLogout}>Logout</button>
                         </li> 
                     </ul>
@@ -100,8 +99,6 @@ function Navbar() {
                   </li>
                 </>
               )}
-
-
             </ul>
           </div>
         </div>

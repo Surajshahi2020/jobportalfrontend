@@ -1,0 +1,30 @@
+body {
+  background-color: #fbf8fa;
+}
+
+table {
+  /*automatically center the table content */
+  margin: 7% auto;
+  min-width: 50vw;
+  background-color: rgb(248 253 248);
+}
+thead th {
+  background-color: rgb(113 116 112 / 25%);
+  color: #333;
+  padding: 10px;
+  border: 1px solid #0c0808;
+}
+
+tbody td {
+  background-color: rgb(203 193 207);
+  color: #333;
+  border: 1px solid #0c0808;
+  padding: 10px;
+}
+
+table thead .table-title h5 {
+  color: blue;
+}
+tbody tr td a {
+  text-decoration: none;
+}

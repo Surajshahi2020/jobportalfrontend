@@ -28,3 +28,8 @@ table thead .table-title h5 {
 tbody tr td a {
   text-decoration: none;
 }
+
+table thead tr th:nth-child(even),
+td:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}

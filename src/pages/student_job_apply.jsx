@@ -3,15 +3,25 @@ import './pages.css';
 
 function StudentJobApplyPage() {
     const [jobApplyList, setJobApplyList] = useState([]);
+    let authData = JSON.parse(localStorage.getItem("accessToken"))
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/v1/student/job-apply-list/')
-            .then((response) => response.json())
-            .then((data) => {
+        async function fetchJobApplyList() {
+            const requestOptions = {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${authData?.access}` },
+            };
+            try {
+                const response = await fetch('http://localhost:8000/api/v1/student/job-apply-list/', requestOptions);
+                const data = await response.json();
+                console.log(data.data.docs);
                 setJobApplyList(data.data.docs);
-            })
-            .catch((error) => console.error(error));
-    }, []);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        fetchJobApplyList();
+    }, [authData]);
 
     let count = 0;
 
@@ -43,7 +53,7 @@ function StudentJobApplyPage() {
                         <td>{job.end_date}</td>
                         <td>{job.apply_date}</td>
 
-                        
+
                         <td>
                             <a href={job.resume} download>
                                 Download

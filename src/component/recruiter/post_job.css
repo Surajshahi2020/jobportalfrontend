@@ -1,0 +1,31 @@
+.job-post-form {
+  display: flex;
+  justify-content: center;
+  padding: 104px 0;
+}
+
+.job-post-form .form-container {
+  border: 1px solid rgb(248, 251, 248);
+  border-radius: 10px;
+  width: 60%;
+  padding: 8px 75px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fcfffc;
+}
+
+.job-post-form .form-container .job-post-title {
+  font-size: 22px;
+  color: mediumblue;
+}
+.job-post-form .form-container .row {
+  margin: 20px 0;
+}
+
+.job-post-form .form-container .row .col-md-6 label {
+  color: black;
+  font-weight: 400;
+}
+
+.job-post-form .form-container .submit-button {
+  margin: 13px 0;
+}

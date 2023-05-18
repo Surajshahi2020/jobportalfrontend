@@ -32,7 +32,12 @@ function Login() {
         setTimeout(() => {
           setSuccess(false);
         }, 4000);
-        window.location.href = "/student";
+        if (mode === "s") {
+          window.location.href = "/student";
+        }
+        else{
+          window.location.href = "/recruiter";
+        }
       } else {
         setSuccess(false);
         setError(data.message);

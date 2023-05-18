@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../images/logo.jpg";
 import image from "../../images/image.jpg"
@@ -7,6 +7,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Register from "../Register/Register";
 import Login from "../login/login";
 function Navbar() {
+  const accessTokenType = JSON.parse(localStorage.getItem("accessToken") || "{}").type;
   const [loginVisible, setLoginVisible] = useState(false);
   const [signupVisible, setSignupVisible] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -30,6 +31,7 @@ function Navbar() {
     window.location.href = "/";
 
   };
+  console.log(11111111111111111111111111,accessTokenType);
 
   return (
     <div className="main-header">
@@ -88,17 +90,28 @@ function Navbar() {
                   <li className="student-profile" onClick={handleDropdownToggle}>
                     <img src={image} alt="student-logo" />
                     {showDropdown && (
-                        <ul className="dropdown-menu">
+                      <ul className="dropdown-menu">
                         <li className="dropdown-menu-item"> <Link to="/Student">Profile</Link></li>
                         <li className="dropdown-menu-item"><Link to="/change_password">Change Password</Link></li>
+                        {accessTokenType === "student" && (
                         <li className="dropdown-menu-item"><Link to="/student_job_apply">Applied Job</Link></li>
+                        )}
+
+                        {accessTokenType === "recruiter" && (
+                          <li className="dropdown-menu-item">
+                            <Link to="/job_post">Job Post</Link>
+                          </li>
+                        )}
+
                         <li className="dropdown-menu-item" onClick={handleLogout}><button className="logout" onClick={handleLogout}>Logout</button>
-                        </li> 
-                    </ul>
+                        </li>
+                      </ul>
                     )}
                   </li>
                 </>
               )}
+
+
             </ul>
           </div>
         </div>

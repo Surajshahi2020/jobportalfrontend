@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./style.css";
+import "../student/student.css"
 
-function StudentChangePassword() {
+function RecruiterChangePassword() {
     let authData = JSON.parse(localStorage.getItem("accessToken"))
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -19,7 +19,7 @@ function StudentChangePassword() {
 
         try {
             const response = await fetch(
-                "http://localhost:8000/api/v1/student/change-password/",
+                "http://localhost:8000/api/v1/recruiter/change-password/",
                 {
                     method: "POST",
                     headers: { "Authorization": `Bearer ${authData?.access}` },
@@ -48,7 +48,7 @@ function StudentChangePassword() {
         <form className="change-password-form" onSubmit={handleSubmit}>
             <div className="password-container">
                 <div className="change-password">
-                    <h1>Student Change Password</h1>
+                    <h1>Recruiter Change Password</h1>
                 </div>
                 <div className="row">
                     <div className="col-sm-12">
@@ -114,4 +114,4 @@ function StudentChangePassword() {
     );
 }
 
-export default StudentChangePassword;
+export default RecruiterChangePassword;

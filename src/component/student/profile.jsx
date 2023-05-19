@@ -77,7 +77,7 @@ function SProfile() {
       <form className="" onSubmit={handleSubmit}>
       <div className="container">
         <div className="name">
-      <h1>Profile</h1>
+      <h1>Student Profile</h1>
       </div>
 
         <div className="row">

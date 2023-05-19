@@ -67,7 +67,7 @@ function PostJob() {
         <form className="job-post-form" onSubmit={handleSubmit}>
             <div className="form-container">
                 <div className="job-post-title">
-                    <h4>Job Post</h4>
+                    <h4>Recruiter Job Post</h4>
                 </div>
                 <div className="row">
                     <div className="col-md-6">

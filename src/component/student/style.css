@@ -2,6 +2,7 @@ form.change-password-form {
   margin: 5rem auto;
   width: 600px;
   background-color: #fbf8fa;
+  margin-bottom: 291px;
 }
 
 div.password-container {
@@ -30,4 +31,8 @@ div.form-group {
 
 div.text-left {
   margin-top: 29px;
+}
+
+.change-password-form {
+  margin-bottom: 100px;
 }

@@ -31,7 +31,7 @@ function Navbar() {
     window.location.href = "/";
 
   };
-  console.log(11111111111111111111111111,accessTokenType);
+  console.log(11111111111111111111111111, accessTokenType);
 
   return (
     <div className="main-header">
@@ -91,10 +91,20 @@ function Navbar() {
                     <img src={image} alt="student-logo" />
                     {showDropdown && (
                       <ul className="dropdown-menu">
-                        <li className="dropdown-menu-item"> <Link to="/Student">Profile</Link></li>
+
+                        {accessTokenType === "student" ? (
+                          <li className="dropdown-menu-item">
+                            <Link to="/Student">Profile</Link>
+                          </li>
+                        ) : (
+                          <li className="dropdown-menu-item">
+                            <Link to="/Recruiter">Profile</Link>
+                          </li>
+                        )}
+
                         <li className="dropdown-menu-item"><Link to="/change_password">Change Password</Link></li>
                         {accessTokenType === "student" && (
-                        <li className="dropdown-menu-item"><Link to="/student_job_apply">Applied Job</Link></li>
+                          <li className="dropdown-menu-item"><Link to="/student_job_apply">Applied Job</Link></li>
                         )}
 
                         {accessTokenType === "recruiter" && (

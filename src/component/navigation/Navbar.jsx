@@ -31,7 +31,6 @@ function Navbar() {
     window.location.href = "/";
 
   };
-  console.log(11111111111111111111111111, accessTokenType);
 
   return (
     <div className="main-header">
@@ -45,8 +44,7 @@ function Navbar() {
           <div className="col-md-9">
             <ul>
               <li>
-                <a href="https://sabaikojobs.com/">
-                  <i className="fa fa-home"></i>HOME
+              <a><i className="fa fa-home"><Link to="/">Home</Link></i>
                 </a>
               </li>
               <li>

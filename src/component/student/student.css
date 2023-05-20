@@ -57,9 +57,14 @@
   margin-bottom: 120px;
 }
 
-.success-message,
-.error-message {
+.success-message {
   background-color: palegreen;
+  margin-top: 16px;
+  padding: 12px;
+}
+
+.error-message {
+  background-color: rgb(235, 203, 203);
   margin-top: 16px;
   padding: 12px;
 }

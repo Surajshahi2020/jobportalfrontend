@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./content.css";
 import image from "../../images/image.jpg";
+import { Link } from 'react-router-dom';
 
 
 function Content() {
+  let authData = JSON.parse(localStorage.getItem("accessToken"))
   const [jobList, setJobList] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,14 +99,17 @@ function Content() {
                       <div className="job-type">
                         <span className="light-green">Full Time</span>
                       </div>
+
                       <div className="apply-btn">
-                        <a href="https://preview.themeforest.net/item/jobes-job-portal-html-template/full_screen_preview/43974301?_ga=2.78735261.860034729.1683561914-196358546.1674547707">
-                          <span>
-                            <i className="fa fa-circle"></i>
-                          </span>
-                          Apply Now
-                        </a>
+                        {authData ? (
+                          <Link to={`/job_apply/${job?.id}`}>Apply</Link>
+                        ) : (
+                          <button onClick={() => 
+                            alert('Login is Required')}>Apply
+                            </button>
+                        )}
                       </div>
+
                     </div>
 
 

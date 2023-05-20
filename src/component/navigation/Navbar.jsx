@@ -113,6 +113,12 @@ function Navbar() {
                           </li>
                         )}
 
+                        {accessTokenType === "recruiter" && (
+                          <li className="dropdown-menu-item">
+                            <Link to="/candidate_list">Candidates List</Link>
+                          </li>
+                        )}
+
                         <li className="dropdown-menu-item" onClick={handleLogout}><button className="logout" onClick={handleLogout}>Logout</button>
                         </li>
                       </ul>

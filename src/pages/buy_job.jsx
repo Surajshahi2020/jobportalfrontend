@@ -55,7 +55,7 @@ function BuyPage() {
     return (
         <div>
             {authData?.type === "student" && jobData && (
-                <div className="job-description">
+                <div className="job-buy">
                     <div className="first-row">
                         <div className="col-md-9">
                             <h4>Job Title

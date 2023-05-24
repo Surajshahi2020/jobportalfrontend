@@ -100,7 +100,7 @@ function Content() {
                         <span className="light-green">Full Time</span>
                       </div>
 
-                      <div className="job-buy">
+                      <div className="apply-btn">
                         {authData ? (
                             <Link to={`/buy/${job?.id}`}>Buy</Link>
                         ) : (

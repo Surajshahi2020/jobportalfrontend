@@ -8,6 +8,7 @@ import RecruiterPage from "./pages/recruiter"
 import StudentChangePasswordPage from "./pages/change_password";
 import {Link} from "react-router-dom";
 import StudentJobApplyPage from "./pages/student_job_apply";
+import BuyPage from "./pages/buy_job";
 import CandidateListPage from "./pages/candidate_list";
 import JobApplyPage from "./pages/job_apply";
 import PostJobPage from "./pages/job_post";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/change_password" element={<StudentChangePasswordPage />} />
           <Route path="/candidate_list" element={<CandidateListPage />} />
           <Route path="/student_job_apply" element={<StudentJobApplyPage />}></Route>
+          <Route path="/buy/:id" element={<BuyPage />}></Route>
           <Route path="/job_apply/:id" element={<JobApplyPage />} />
           <Route path="/job_post" element={<PostJobPage />}></Route>
           <Route path="*" element={<NotFound />} />

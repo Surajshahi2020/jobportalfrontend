@@ -14,3 +14,46 @@ body {
 .row {
   flex-wrap: none;
 }
+
+.job-description {
+  max-width: 600px;
+  margin: 42px auto;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 133px;
+}
+.title-name {
+  color: black;
+}
+.job-description .first-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+h4 {
+  color: blue;
+  margin: 0px;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.app-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.app-btn:hover {
+  background-color: #b7f0c3;
+}
+
+p.title-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5%;
+}

@@ -100,6 +100,16 @@ function Content() {
                         <span className="light-green">Full Time</span>
                       </div>
 
+                      <div className="job-buy">
+                        {authData ? (
+                            <Link to={`/buy/${job?.id}`}>Buy</Link>
+                        ) : (
+                            <button onClick={() =>
+                              alert("Login is Required")}>Buy
+                            </button>
+                        )}
+                      </div>
+
                       <div className="apply-btn">
                         {authData ? (
                           <Link to={`/job_apply/${job?.id}`}>Apply</Link>

@@ -34,3 +34,19 @@ table thead tr th:nth-child(even),
 td:nth-child(even) {
   background-color: rgba(150, 212, 212, 0.4);
 }
+
+p.success-message-khalti {
+  background-color: rgb(93, 192, 106);
+  padding: 15px 1px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #f3f0ed;
+}
+
+p.error-message-khalti {
+  background-color: rgb(177, 134, 115);
+  padding: 15px 1px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #f3f0ed;
+}
